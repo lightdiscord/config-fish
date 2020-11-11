@@ -1,1 +1,1 @@
-# home-config-fish
+# config-fish

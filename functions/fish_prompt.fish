@@ -1,21 +1,8 @@
 function fish_prompt --description 'Write out the prompt'
-	set -l last_status $status
+    set -l last_status $status
 
-    # User
-    set_color $fish_color_user
-    echo -n (whoami)
-    set_color normal
+    echo
 
-    echo -n '@'
-
-    # Host
-    set_color $fish_color_host
-    echo -n (prompt_hostname)
-    set_color normal
-
-    echo -n ':'
-
-    # PWD
     set_color $fish_color_cwd
     echo -n (prompt_pwd)
     set_color normal
@@ -24,10 +11,11 @@ function fish_prompt --description 'Write out the prompt'
     __fish_hg_prompt
     echo
 
-    if not test $last_status -eq 0
+    if test $last_status -ne 0
         set_color $fish_color_error
     end
 
-    echo -n '➤ '
+    echo -n '$ '
+
     set_color normal
 end
